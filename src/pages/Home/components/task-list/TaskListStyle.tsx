@@ -5,7 +5,7 @@ const TaskListStyle = styled.div`
 	grid-gap: 32px;
 	padding: 0 32px;
 	margin-top: 64px;
-	width: calc(100% - 200px);
+	width: 100%;
 
 	.task-list-head {
 		font-weight: 600;

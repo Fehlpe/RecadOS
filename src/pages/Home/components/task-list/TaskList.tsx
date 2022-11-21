@@ -94,7 +94,7 @@ export default function NoteList(): JSX.Element {
         <TaskListCells>
           <TextField
             id="standard-basic"
-            label="Tarefa"
+            label="Título"
             variant="standard"
             fullWidth={true}
             onChange={(e) => setTitle(e.target.value)}
@@ -135,7 +135,7 @@ export default function NoteList(): JSX.Element {
           <TaskListCells>
             <TextField
               id={value.uid + "1"}
-              label="Tarefa"
+              label="Título"
               variant="standard"
               fullWidth={true}
               className="task-list-title"
@@ -148,7 +148,7 @@ export default function NoteList(): JSX.Element {
           <TaskListCells>
             <TextField
               id={value.uid + "2"}
-              label="Tarefa"
+              label="Descrição"
               variant="standard"
               fullWidth={true}
               className="task-list-description"
