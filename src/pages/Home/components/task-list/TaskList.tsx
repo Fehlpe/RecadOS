@@ -2,7 +2,7 @@ import TaskListStyle from "./TaskListStyle";
 import { useEffect, useRef, useState } from "react";
 import TaskListRows from "../task-list-rows/TaskListRows";
 import TaskListCells from "../task-list-cells/TaskListCells";
-import { Button, TextField } from "@mui/material";
+import { Button, Container, createTheme, TextField } from "@mui/material";
 import User from "../../../../utils/interfaces/InterfaceUser";
 import Note from "../../../../utils/interfaces/InterfaceNote";
 import { v4 as uuidv4 } from "uuid";
@@ -10,6 +10,12 @@ import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
 import { selectAll as selectAllUsers, updateUser } from "../../../../store/modules/user/UserSlice";
 import { addNote, removeNote, selectAll as selectAllNotes, updateNote} from "../../../../store/modules/user/NoteSlice";
 
+
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
 
 export default function NoteList(): JSX.Element {
   const [loggedUser, setLoggedUser] = useState<User | null>();
@@ -89,7 +95,8 @@ export default function NoteList(): JSX.Element {
   }
 
   return (
-    <TaskListStyle>
+    <Container maxWidth={false}>
+      <TaskListStyle>
       <TaskListRows>
         <TaskListCells>
           <TextField
@@ -114,6 +121,7 @@ export default function NoteList(): JSX.Element {
         <TaskListCells>
           <div className="task-list-actions-header">
             <Button
+              color="error"
               onClick={(e) => {
                 e.preventDefault();
                 saveNote();
@@ -121,6 +129,8 @@ export default function NoteList(): JSX.Element {
                 titleRef.current.value = "";
                 // @ts-ignore
                 descriptionRef.current.value = "";
+                setTitle('');
+                setDescription('');
               }}
               variant="contained"
               fullWidth={true}
@@ -172,6 +182,7 @@ export default function NoteList(): JSX.Element {
                 Editar
               </Button>
               <Button
+                color="error"
                 variant="contained"
                 fullWidth={true}
                 onClick={(e) => {
@@ -186,5 +197,6 @@ export default function NoteList(): JSX.Element {
         </TaskListRows>
       ))}
     </TaskListStyle>
+    </Container>
   );
 }

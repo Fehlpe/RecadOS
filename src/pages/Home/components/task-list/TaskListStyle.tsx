@@ -3,8 +3,8 @@ import styled from 'styled-components'
 const TaskListStyle = styled.div`
 	display: grid;
 	grid-gap: 32px;
-	padding: 0 32px;
-	margin-top: 64px;
+	padding: 0 8px;
+	margin-top: 42px;
 	width: 100%;
 
 	.task-list-head {
