@@ -135,7 +135,7 @@ export default function NoteList(): JSX.Element {
               variant="contained"
               fullWidth={true}
             >
-              Salvar
+              Salvar novo recado
             </Button>
           </div>
         </TaskListCells>
