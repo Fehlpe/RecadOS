@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Paper } from "@mui/material";
-import "./login.css"
+import "./login.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
@@ -23,7 +23,7 @@ const darkTheme = createTheme({
 });
 
 const SxStyle = {
-    backgroundColor: '#222'
+  backgroundColor: "#222",
 };
 
 export default function LogIn() {
@@ -32,6 +32,9 @@ export default function LogIn() {
   const navigate = useNavigate();
   const navigateHome = () => {
     navigate("/home");
+  };
+  const navigateSign = () => {
+    navigate("/sign");
   };
 
   const dispatch = useAppDispatch();
@@ -59,7 +62,7 @@ export default function LogIn() {
       alert("E-mail ou senha inválidos");
       return false;
     }
-  };
+  }
 
   function setLogged(userEmail: string): void {
     sessionStorage.setItem("logged", userEmail);
@@ -78,7 +81,7 @@ export default function LogIn() {
             minHeight: "100vh",
           }}
         >
-          <Typography sx={{ mb:5 }} component="h1" variant="h2" align="center">
+          <Typography sx={{ mb: 5 }} component="h1" variant="h2" align="center">
             Recad<span id="span-titulo">OS</span>
           </Typography>
 
@@ -87,7 +90,14 @@ export default function LogIn() {
               component="form"
               onSubmit={handleSubmit}
               noValidate
-              sx={{ mt: 1 }}
+              sx={{
+                mt: 1,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                minWidth: "30vw",
+              }}
             >
               <Typography component="h1" variant="h5" align="center">
                 Logar
@@ -120,13 +130,9 @@ export default function LogIn() {
               >
                 Logar
               </Button>
-              <Grid container>
-                <Grid item>
-                  <Link href="sign" variant="body2">
-                    {"Não tem uma conta? Criar conta"}
-                  </Link>
-                </Grid>
-              </Grid>
+              <Button color="error" variant="text" onClick={navigateSign}>
+                Nâo possui uma conta? Criar agora
+              </Button>
             </Box>
           </Paper>
         </Box>

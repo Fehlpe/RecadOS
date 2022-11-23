@@ -46,11 +46,11 @@ export default function SignIn() {
           username: userName,
           email: userEmail,
           password: userPassword,
-          notes: []
+          notes: [],
         })
       );
       navigateLogin();
-    };
+    }
   };
 
   function checkInputs(): Boolean {
@@ -69,7 +69,7 @@ export default function SignIn() {
     }
     alert("Todos os campos devem ser preenchidos");
     return false;
-  };
+  }
 
   function checkEmail() {
     let existingUser = userList.some((users) => users.email === userEmail);
@@ -85,8 +85,14 @@ export default function SignIn() {
     if (userPassword !== userPassword2) {
       alert("As senhas devem coincidir!");
       return false;
+    } else {
+      if(userPassword.length < 4) {
+        alert("A senha deve possuir no mínimo 5 digitos!")
+      } else {
+        return true;
+      }
+      return false
     }
-    return true;
   }
 
   return (
@@ -111,7 +117,14 @@ export default function SignIn() {
               component="form"
               onSubmit={handleSubmit}
               noValidate
-              sx={{ mt: 1 }}
+              sx={{
+                mt: 1,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                minWidth: "30vw",
+              }}
             >
               <Typography component="h1" variant="h5" align="center">
                 Cadastrar
@@ -165,13 +178,9 @@ export default function SignIn() {
               >
                 Cadastrar
               </Button>
-              <Grid container>
-                <Grid item>
-                  <Link href="/" variant="body2">
-                    {"Já possui uma conta? Entre agora"}
-                  </Link>
-                </Grid>
-              </Grid>
+              <Button color="error" variant="text" onClick={navigateLogin}>
+                Já possui uma conta? Entre agora
+              </Button>
             </Box>
           </Paper>
         </Box>

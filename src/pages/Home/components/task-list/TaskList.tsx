@@ -63,7 +63,7 @@ export default function NoteList(): JSX.Element {
     };
 
     if (!description || !title) {
-      alert("Necessário digitar alguma informação");
+      alert("Campos de informação vazios!");
       return;
     }
     dispatch(addNote(newNote));
@@ -173,6 +173,7 @@ export default function NoteList(): JSX.Element {
               <Button
                 id={value.uid + "3"}
                 variant="outlined"
+                color="warning"
                 fullWidth={true}
                 onClick={(e) => {
                   e.preventDefault();
