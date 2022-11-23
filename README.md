@@ -6,6 +6,6 @@ Site para criar recados pessoais
 
 Technologies/Tecnologias: React/Typescript/Redux/MUI
 
-Final Module Assessment - Introduction to Web Programming - FullStack Web Developer - Growdev
+Final Module Assessment - Front-End-3 - FullStack Web Developer - Growdev
 
-Avaliação Final do Módulo - Introdução a Programação Para Web - FullStack Web Developer - Growdev
+Avaliação Final do Módulo - Front-End-3 - FullStack Web Developer - Growdev
